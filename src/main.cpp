@@ -1,59 +1,79 @@
 #include <systemc.h>
-#include "pe.h"
+#include "array.h"
 
 int sc_main(int argc, char* argv[]) {
-    // 1. Create Signals (Wires)
-    sc_clock clk("clk", 10, SC_NS); // 10ns clock period
+    // 1. Setup Clock and Reset
+    sc_clock clk("clk", 10, SC_NS);
     sc_signal<bool> rst;
-    
-    sc_signal<int> sig_in_act;
-    sc_signal<int> sig_in_psum;
-    sc_signal<int> sig_out_act;
-    sc_signal<int> sig_out_psum;
 
-    // 2. Instantiate the PE
-    PE pe0("PE_0_0");
-    pe0.clk(clk);
-    pe0.rst(rst);
-    pe0.in_act(sig_in_act);
-    pe0.in_psum(sig_in_psum);
-    pe0.out_act(sig_out_act);
-    pe0.out_psum(sig_out_psum);
+    // 2. Instantiate the 2x2 Array
+    SystolicArray<2, 2> my_array("Conv_Array");
+    my_array.clk(clk);
+    my_array.rst(rst);
 
-    // 3. Setup Waveform Tracing
-    sc_trace_file *wf = sc_create_vcd_trace_file("waveforms");
+
+    sc_trace_file *wf = sc_create_vcd_trace_file("array_wave");
+
     sc_trace(wf, clk, "clk");
     sc_trace(wf, rst, "rst");
-    sc_trace(wf, sig_in_act, "in_act");
-    sc_trace(wf, sig_out_psum, "out_psum");
 
-    // 4. Run the Simulation
-    cout << "Starting Simulation..." << endl;
+    for(int i=0;i<2;i++)
+        for(int j=0;j<=2;j++)
+            sc_trace(wf, my_array.act_wire[i][j], "act");
+
+    for(int i=0;i<=2;i++)
+        for(int j=0;j<2;j++)
+            sc_trace(wf, my_array.psum_wire[i][j], "psum");
     
-    // Reset phase
+            
+    // 3. Run the Simulation
+    cout << "--- Starting 2x2 Systolic Array Simulation ---" << endl;
+    
+    // Reset the array
     rst.write(true);
-    sig_in_act.write(0);
-    sig_in_psum.write(0);
-    sc_start(20, SC_NS); 
-
-    // Active phase
-    rst.write(false);
     
-    // Cycle 1: Feed activation '5'
-    sig_in_act.write(5);
-    sig_in_psum.write(10); // initial partial sum
-    sc_start(10, SC_NS);
-    cout << "Cycle 1 -> Out Psum: " << sig_out_psum.read() << endl;
+    // Zero out the inputs at the edges
+    for(int i=0; i<2; i++) my_array.act_wire[i][0].write(0);  // Left edge
+    for(int j=0; j<2; j++) my_array.psum_wire[0][j].write(0); // Top edge
+    
+    sc_start(10, SC_NS); 
+    rst.write(false); // Release reset
 
-    // Cycle 2: Feed activation '3'
-    sig_in_act.write(3);
-    sig_in_psum.write(0);
+    // ---------------------------------------------------------
+    // CYCLE 1: Feed data to PE(0,0)
+    // ---------------------------------------------------------
+    my_array.act_wire[0][0].write(2);  // Pixel input at Row 0
+    my_array.psum_wire[0][0].write(0); // Initial partial sum at Col 0
     sc_start(10, SC_NS);
-    cout << "Cycle 2 -> Out Psum: " << sig_out_psum.read() << endl;
+    cout << "Cycle 1 complete." << endl;
 
-    // 5. Cleanup
+    // ---------------------------------------------------------
+    // CYCLE 2: Data moves deeper into the array
+    // ---------------------------------------------------------
+    // PE(0,0) output is now sitting on act_wire[0][1] and psum_wire[1][0]
+    // Feed new data into the edges
+    my_array.act_wire[0][0].write(3);  
+    my_array.act_wire[1][0].write(4);  // Pixel input at Row 1
+    sc_start(10, SC_NS);
+    
+    // Let's print the wires inside the array to prove it workes
+    cout << "Cycle 2 -> PE(0,0) passed Activation right: " << my_array.act_wire[0][1].read() << endl;
+    cout << "Cycle 2 -> PE(0,0) passed Psum down:      " << my_array.psum_wire[1][0].read() << endl;
+
+    // ---------------------------------------------------------
+    // CYCLE 3: Wait for PE(1,1) to finish
+    // ---------------------------------------------------------
+    my_array.act_wire[0][0].write(0);
+    my_array.act_wire[1][0].write(0);
+    sc_start(10, SC_NS);
+    
+    // Read the FINAL output at the bottom of Column 0
+    cout << "Cycle 3 -> Final Psum out of Col 0 (Bottom): " << my_array.psum_wire[2][0].read() << endl;
+
+    
     sc_close_vcd_trace_file(wf);
-    cout << "Simulation Complete. Check waveforms.vcd!" << endl;
 
+    cout << "--- Simulation Complete ---" << endl;
+    
     return 0;
 }

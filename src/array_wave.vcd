@@ -1,0 +1,95 @@
+$date
+     Mar 11, 2026       09:42:22
+$end
+
+$version
+ SystemC 3.0.1-Accellera --- Mar 11 2026 09:13:29
+$end
+
+$timescale
+     1 ps
+$end
+
+$scope module SystemC $end
+$var wire    1  aaaaa  clk       $end
+$var wire    1  aaaab  rst       $end
+$var wire   32  aaaac  act [31:0]  $end
+$var wire   32  aaaad  act [31:0]  $end
+$var wire   32  aaaae  act [31:0]  $end
+$var wire   32  aaaaf  act [31:0]  $end
+$var wire   32  aaaag  act [31:0]  $end
+$var wire   32  aaaah  act [31:0]  $end
+$var wire   32  aaaai  psum [31:0]  $end
+$var wire   32  aaaaj  psum [31:0]  $end
+$var wire   32  aaaak  psum [31:0]  $end
+$var wire   32  aaaal  psum [31:0]  $end
+$var wire   32  aaaam  psum [31:0]  $end
+$var wire   32  aaaan  psum [31:0]  $end
+$upscope $end
+$enddefinitions  $end
+
+$comment
+All initial values are dumped below at time 0 sec = 0 timescale units.
+$end
+
+$dumpvars
+1aaaaa
+1aaaab
+b0 aaaac
+b0 aaaad
+b0 aaaae
+b0 aaaaf
+b0 aaaag
+b0 aaaah
+b0 aaaai
+b0 aaaaj
+b0 aaaak
+b0 aaaal
+b0 aaaam
+b0 aaaan
+$end
+
+#5000
+0aaaaa
+
+#10000
+1aaaaa
+0aaaab
+b10 aaaac
+b10 aaaad
+b10 aaaak
+
+#15000
+0aaaaa
+
+#20000
+1aaaaa
+b11 aaaac
+b11 aaaad
+b10 aaaae
+b100 aaaaf
+b100 aaaag
+b11 aaaak
+b10 aaaal
+b110 aaaam
+
+#25000
+0aaaaa
+
+#30000
+1aaaaa
+b0 aaaac
+b0 aaaad
+b11 aaaae
+b0 aaaaf
+b0 aaaag
+b100 aaaah
+b0 aaaak
+b11 aaaal
+b11 aaaam
+b110 aaaan
+
+#35000
+0aaaaa
+
+#40000
