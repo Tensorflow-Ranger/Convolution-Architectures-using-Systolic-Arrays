@@ -18,19 +18,32 @@ SC_MODULE(PE) {
     // Internal State
     int weight; 
 
+    int total_cycles = 0;
+    int active_cycles = 0;
+
     // The MAC Logic / multiply accumulate
     //Run compute() on every rising edge of clock
     void compute() {
         /*If reset id active
         clear the outputs
         else */
-        
         if (rst.read() == true) {
             out_act.write(0);
             out_psum.write(0);
+            // Optionally reset counters to 0 if reset is hit again
+            total_cycles = 0;
+            active_cycles = 0;
         } else {
+            // We are out of reset, start counting!
+            total_cycles++;
+
             int act = in_act.read();
             int psum = in_psum.read();
+
+            if (act != 0) { // If there is valid data
+                active_cycles++;
+            }
+            
             
             // 1. Pass activation to the right
             out_act.write(act);
@@ -38,6 +51,10 @@ SC_MODULE(PE) {
             // 2. MAC Operation: Psum_out = Psum_in + (Activation * Weight)
             out_psum.write(psum + (act * weight));
         }
+    }
+
+    void set_weight(int w) {
+        weight = w;
     }
 
     // Constructor

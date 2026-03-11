@@ -49,6 +49,15 @@ SC_MODULE(SystolicArray) {
         }
     }
     
+    // Function to load a full matrix of weights into the array
+    void load_weights(int w_matrix[ROWS][COLS]) {
+        for (int i = 0; i < ROWS; i++) {
+            for (int j = 0; j < COLS; j++) {
+                pe[i][j]->set_weight(w_matrix[i][j]);
+            }
+        }
+    }
+    
     // Destructor to clean up memory
     ~SystolicArray() {
         for (int i = 0; i < ROWS; i++) {
