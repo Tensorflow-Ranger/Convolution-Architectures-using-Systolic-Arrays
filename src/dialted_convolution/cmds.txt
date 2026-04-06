@@ -1,0 +1,8 @@
+g++ -std=c++17 dilated_conv_tb.cpp \
+         -I/usr/local/systemc/include \
+         -L/usr/local/systemc/lib \
+         -lsystemc \
+         -Wl,-rpath,/usr/local/systemc/lib \
+         -o dilated_conv_tb
+
+./dilated_conv_tb
