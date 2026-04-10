@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/sim.dir/src/main.cpp.o -o sim   -L/usr/local/systemc/lib64  -Wl,-rpath,/usr/local/systemc/lib64 -lsystemc

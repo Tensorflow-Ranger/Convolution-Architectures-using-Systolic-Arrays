@@ -1,0 +1,6 @@
+/home/grass/Documents/sem6/Convolution-Architectures-using-Systolic-Arrays/build/CMakeFiles/dilated_conv.dir
+/home/grass/Documents/sem6/Convolution-Architectures-using-Systolic-Arrays/build/CMakeFiles/depthwise_conv.dir
+/home/grass/Documents/sem6/Convolution-Architectures-using-Systolic-Arrays/build/CMakeFiles/grouped_conv.dir
+/home/grass/Documents/sem6/Convolution-Architectures-using-Systolic-Arrays/build/CMakeFiles/sim.dir
+/home/grass/Documents/sem6/Convolution-Architectures-using-Systolic-Arrays/build/CMakeFiles/edit_cache.dir
+/home/grass/Documents/sem6/Convolution-Architectures-using-Systolic-Arrays/build/CMakeFiles/rebuild_cache.dir

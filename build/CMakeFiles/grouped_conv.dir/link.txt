@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/grouped_conv.dir/src/grouped_convolution/grouped_conv_tb.cpp.o -o grouped_conv   -L/usr/local/systemc/lib64  -Wl,-rpath,/usr/local/systemc/lib64 -lsystemc

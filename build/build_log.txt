@@ -1,0 +1,317 @@
+[ 12%] Building CXX object CMakeFiles/dilated_conv.dir/src/dialted_convolution/dilated_conv_tb.cpp.o
+In file included from /usr/local/systemc/include/systemc:70,
+                 from /usr/local/systemc/include/systemc.h:194,
+                 from /home/grass/Documents/sem6/Convolution-Architectures-using-Systolic-Arrays/src/dialted_convolution/dilated_conv_tb.cpp:1:
+/usr/local/systemc/include/sysc/kernel/sc_cmnhdr.h:113:4: error: #error **** SystemC requires a C++ standard version of at least C++17 ****
+  113 | #  error **** SystemC requires a C++ standard version of at least C++17 ****
+      |    ^~~~~
+In file included from /usr/local/systemc/include/sysc/kernel/sc_simcontext.h:36,
+                 from /usr/local/systemc/include/sysc/kernel/sc_event.h:35,
+                 from /usr/local/systemc/include/sysc/communication/sc_port.h:37,
+                 from /usr/local/systemc/include/sysc/communication/sc_event_finder.h:34,
+                 from /usr/local/systemc/include/sysc/communication/sc_signal_ports.h:33,
+                 from /usr/local/systemc/include/sysc/kernel/sc_spawn_options.h:37,
+                 from /usr/local/systemc/include/sysc/kernel/sc_spawn.h:39,
+                 from /usr/local/systemc/include/sysc/kernel/sc_dynamic_processes.h:35,
+                 from /usr/local/systemc/include/systemc:72:
+/usr/local/systemc/include/sysc/kernel/sc_time.h:126:39: error: expected ‘)’ before ‘strv’
+  126 |     explicit sc_time( std::string_view strv );
+      |                     ~                 ^~~~~
+      |                                       )
+/usr/local/systemc/include/sysc/kernel/sc_time.h:127:38: error: ‘std::string_view’ has not been declared
+  127 |     static sc_time from_string( std::string_view strv );
+      |                                      ^~~~~~~~~~~
+/usr/local/systemc/include/sysc/kernel/sc_spawn.h:107:40: error: ‘is_invocable_v’ is not a member of ‘std’
+  107 |         , typename std::enable_if<std::is_invocable_v<T>,bool>::type = true
+      |                                        ^~~~~~~~~~~~~~
+/usr/local/systemc/include/sysc/kernel/sc_spawn.h:107:40: error: ‘is_invocable_v’ is not a member of ‘std’
+/usr/local/systemc/include/sysc/kernel/sc_spawn.h:107:56: error: template argument 1 is invalid
+  107 |         , typename std::enable_if<std::is_invocable_v<T>,bool>::type = true
+      |                                                        ^
+/usr/local/systemc/include/sysc/kernel/sc_spawn.h:107:57: error: expected identifier before ‘,’ token
+  107 |         , typename std::enable_if<std::is_invocable_v<T>,bool>::type = true
+      |                                                         ^
+/usr/local/systemc/include/sysc/kernel/sc_spawn.h:107:65: error: ‘type’ in namespace ‘::’ does not name a type; did you mean ‘wctype’?
+  107 |         , typename std::enable_if<std::is_invocable_v<T>,bool>::type = true
+      |                                                                 ^~~~
+      |                                                                 wctype
+/usr/local/systemc/include/sysc/kernel/sc_spawn.h:200:42: error: ‘is_invocable_r_v’ is not a member of ‘std’
+  200 |         , typename std::enable_if_t<std::is_invocable_r_v<R,T>, bool> = true
+      |                                          ^~~~~~~~~~~~~~~~
+/usr/local/systemc/include/sysc/kernel/sc_spawn.h:200:42: error: ‘is_invocable_r_v’ is not a member of ‘std’
+/usr/local/systemc/include/sysc/kernel/sc_spawn.h:200:62: error: template argument 1 is invalid
+  200 |         , typename std::enable_if_t<std::is_invocable_r_v<R,T>, bool> = true
+      |                                                              ^
+/usr/local/systemc/include/sysc/kernel/sc_spawn.h:200:63: error: expected identifier before ‘,’ token
+  200 |         , typename std::enable_if_t<std::is_invocable_r_v<R,T>, bool> = true
+      |                                                               ^
+/usr/local/systemc/include/sysc/kernel/sc_spawn.h:200:71: error: expected unqualified-id before ‘=’ token
+  200 |         , typename std::enable_if_t<std::is_invocable_r_v<R,T>, bool> = true
+      |                                                                       ^
+In file included from /usr/local/systemc/include/sysc/kernel/sc_initializer_function.h:35,
+                 from /usr/local/systemc/include/systemc:75:
+/usr/local/systemc/include/sysc/kernel/sc_module.h:416:8: warning: inline variables are only available with ‘-std=c++17’ or ‘-std=gnu++17’ [-Wc++17-extensions]
+  416 | static inline constexpr bool sc_has_process_used = true;
+      |        ^~~~~~
+In file included from /usr/local/systemc/include/systemc:133:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:46:1: error: expected class-name before ‘{’ token
+   46 | {
+      | ^
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:47:16: error: ‘string_view’ in namespace ‘std’ does not name a type
+   47 |   typedef std::string_view base_type;
+      |                ^~~~~~~~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:47:11: note: ‘std::string_view’ is only available from C++17 onwards
+   47 |   typedef std::string_view base_type;
+      |           ^~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:49:44: error: ‘base_type’ was not declared in this scope
+   49 |     : std::enable_if<std::is_convertible<T,base_type>::value > {};
+      |                                            ^~~~~~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:49:53: error: template argument 2 is invalid
+   49 |     : std::enable_if<std::is_convertible<T,base_type>::value > {};
+      |                                                     ^
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:49:62: error: template argument 1 is invalid
+   49 |     : std::enable_if<std::is_convertible<T,base_type>::value > {};
+      |                                                              ^
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:52:11: error: ‘base_type’ has not been declared
+   52 |     using base_type::base_type;
+      |           ^~~~~~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:65:36: error: ‘base_type’ has not been declared
+   65 |   /* constexpr */ bool starts_with(base_type sv) const /* noexcept */
+      |                                    ^~~~~~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:72:34: error: ‘base_type’ has not been declared
+   72 |   /* constexpr */ bool ends_with(base_type sv) const /* noexcept */
+      |                                  ^~~~~~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h: In constructor ‘sc_core::sc_string_view::sc_string_view(const T&, typename enable_if_convertible<T>::type*)’:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:58:9: error: class ‘sc_core::sc_string_view’ does not have any field named ‘base_type’
+   58 |       : base_type(s) {}
+      |         ^~~~~~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h: In member function ‘std::string sc_core::sc_string_view::str() const’:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:62:27: error: ‘data’ was not declared in this scope
+   62 |     { return std::string( data(), size() ); }
+      |                           ^~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:62:35: error: ‘size’ was not declared in this scope
+   62 |     { return std::string( data(), size() ); }
+      |                                   ^~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h: In member function ‘bool sc_core::sc_string_view::starts_with(int) const’:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:66:14: error: ‘size’ was not declared in this scope
+   66 |     { return size() >= sv.size() && compare(0, sv.size(), sv) == 0; }
+      |              ^~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:66:27: error: request for member ‘size’ in ‘sv’, which is of non-class type ‘int’
+   66 |     { return size() >= sv.size() && compare(0, sv.size(), sv) == 0; }
+      |                           ^~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:66:51: error: request for member ‘size’ in ‘sv’, which is of non-class type ‘int’
+   66 |     { return size() >= sv.size() && compare(0, sv.size(), sv) == 0; }
+      |                                                   ^~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:66:37: error: ‘compare’ was not declared in this scope
+   66 |     { return size() >= sv.size() && compare(0, sv.size(), sv) == 0; }
+      |                                     ^~~~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h: In member function ‘bool sc_core::sc_string_view::starts_with(char) const’:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:68:15: error: ‘empty’ was not declared in this scope; did you mean ‘mempcpy’?
+   68 |     { return !empty() && front() == c; }
+      |               ^~~~~
+      |               mempcpy
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:68:26: error: ‘front’ was not declared in this scope
+   68 |     { return !empty() && front() == c; }
+      |                          ^~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h: In member function ‘bool sc_core::sc_string_view::starts_with(const char*) const’:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:70:43: error: no matching function for call to ‘sc_core::sc_string_view::sc_string_view(const char*&)’
+   70 |     { return starts_with( sc_string_view(s) ); }
+      |                                           ^
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:56:21: note: candidate: ‘template<class T> sc_core::sc_string_view::sc_string_view(const T&, typename enable_if_convertible<T>::type*)’
+   56 |     /* constexpr */ sc_string_view( const T& s
+      |                     ^~~~~~~~~~~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:56:21: note:   template argument deduction/substitution failed:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h: In substitution of ‘template<class T> sc_core::sc_string_view::sc_string_view(const T&, typename enable_if_convertible<T>::type*) [with T = const char*]’:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:70:43:   required from here
+   70 |     { return starts_with( sc_string_view(s) ); }
+      |                                           ^
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:56:21: error: no type named ‘type’ in ‘struct sc_core::sc_string_view::enable_if_convertible<const char*>’
+   56 |     /* constexpr */ sc_string_view( const T& s
+      |                     ^~~~~~~~~~~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:44:14: note: candidate: ‘constexpr sc_core::sc_string_view::sc_string_view(const sc_core::sc_string_view&)’
+   44 | class SC_API sc_string_view
+      |              ^~~~~~~~~~~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:44:14: note:   no known conversion for argument 1 from ‘const char*’ to ‘const sc_core::sc_string_view&’
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:44:14: note: candidate: ‘constexpr sc_core::sc_string_view::sc_string_view(sc_core::sc_string_view&&)’
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:44:14: note:   no known conversion for argument 1 from ‘const char*’ to ‘sc_core::sc_string_view&&’
+/usr/local/systemc/include/sysc/utils/sc_string_view.h: In member function ‘bool sc_core::sc_string_view::ends_with(int) const’:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:73:14: error: ‘size’ was not declared in this scope
+   73 |     { return size() >= sv.size() && compare(size() - sv.size(), npos, sv) == 0; }
+      |              ^~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:73:27: error: request for member ‘size’ in ‘sv’, which is of non-class type ‘int’
+   73 |     { return size() >= sv.size() && compare(size() - sv.size(), npos, sv) == 0; }
+      |                           ^~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:73:57: error: request for member ‘size’ in ‘sv’, which is of non-class type ‘int’
+   73 |     { return size() >= sv.size() && compare(size() - sv.size(), npos, sv) == 0; }
+      |                                                         ^~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:73:65: error: ‘npos’ was not declared in this scope
+   73 |     { return size() >= sv.size() && compare(size() - sv.size(), npos, sv) == 0; }
+      |                                                                 ^~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:73:37: error: ‘compare’ was not declared in this scope
+   73 |     { return size() >= sv.size() && compare(size() - sv.size(), npos, sv) == 0; }
+      |                                     ^~~~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h: In member function ‘bool sc_core::sc_string_view::ends_with(char) const’:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:75:15: error: ‘empty’ was not declared in this scope; did you mean ‘mempcpy’?
+   75 |     { return !empty() && back() == c; }
+      |               ^~~~~
+      |               mempcpy
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:75:26: error: ‘back’ was not declared in this scope
+   75 |     { return !empty() && back() == c; }
+      |                          ^~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h: In member function ‘bool sc_core::sc_string_view::ends_with(const char*) const’:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:77:41: error: no matching function for call to ‘sc_core::sc_string_view::sc_string_view(const char*&)’
+   77 |     { return ends_with( sc_string_view(s) ); }
+      |                                         ^
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:56:21: note: candidate: ‘template<class T> sc_core::sc_string_view::sc_string_view(const T&, typename enable_if_convertible<T>::type*)’
+   56 |     /* constexpr */ sc_string_view( const T& s
+      |                     ^~~~~~~~~~~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:56:21: note:   template argument deduction/substitution failed:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h: In substitution of ‘template<class T> sc_core::sc_string_view::sc_string_view(const T&, typename enable_if_convertible<T>::type*) [with T = const char*]’:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:77:41:   required from here
+   77 |     { return ends_with( sc_string_view(s) ); }
+      |                                         ^
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:56:21: error: no type named ‘type’ in ‘struct sc_core::sc_string_view::enable_if_convertible<const char*>’
+   56 |     /* constexpr */ sc_string_view( const T& s
+      |                     ^~~~~~~~~~~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:44:14: note: candidate: ‘constexpr sc_core::sc_string_view::sc_string_view(const sc_core::sc_string_view&)’
+   44 | class SC_API sc_string_view
+      |              ^~~~~~~~~~~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:44:14: note:   no known conversion for argument 1 from ‘const char*’ to ‘const sc_core::sc_string_view&’
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:44:14: note: candidate: ‘constexpr sc_core::sc_string_view::sc_string_view(sc_core::sc_string_view&&)’
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:44:14: note:   no known conversion for argument 1 from ‘const char*’ to ‘sc_core::sc_string_view&&’
+/usr/local/systemc/include/sysc/utils/sc_string_view.h: At global scope:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:104:25: error: ‘remove_suffix’ has not been declared in ‘class sc_core::sc_string_view’
+  104 |   using sc_string_view::remove_suffix;
+      |                         ^~~~~~~~~~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h: In constructor ‘sc_core::sc_zstring_view::sc_zstring_view()’:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:88:19: error: no matching function for call to ‘sc_core::sc_string_view::sc_string_view(const char [1])’
+   88 |     : base_type("") {}
+      |                   ^
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:56:21: note: candidate: ‘template<class T> sc_core::sc_string_view::sc_string_view(const T&, typename enable_if_convertible<T>::type*)’
+   56 |     /* constexpr */ sc_string_view( const T& s
+      |                     ^~~~~~~~~~~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:56:21: note:   template argument deduction/substitution failed:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h: In substitution of ‘template<class T> sc_core::sc_string_view::sc_string_view(const T&, typename enable_if_convertible<T>::type*) [with T = char [1]]’:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:88:19:   required from here
+   88 |     : base_type("") {}
+      |                   ^
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:56:21: error: no type named ‘type’ in ‘struct sc_core::sc_string_view::enable_if_convertible<char [1]>’
+   56 |     /* constexpr */ sc_string_view( const T& s
+      |                     ^~~~~~~~~~~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:44:14: note: candidate: ‘constexpr sc_core::sc_string_view::sc_string_view(const sc_core::sc_string_view&)’
+   44 | class SC_API sc_string_view
+      |              ^~~~~~~~~~~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:44:14: note:   no known conversion for argument 1 from ‘const char [1]’ to ‘const sc_core::sc_string_view&’
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:44:14: note: candidate: ‘constexpr sc_core::sc_string_view::sc_string_view(sc_core::sc_string_view&&)’
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:44:14: note:   no known conversion for argument 1 from ‘const char [1]’ to ‘sc_core::sc_string_view&&’
+/usr/local/systemc/include/sysc/utils/sc_string_view.h: In constructor ‘sc_core::sc_zstring_view::sc_zstring_view(const char*)’:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:91:39: error: no matching function for call to ‘sc_core::sc_string_view::sc_string_view(const char*)’
+   91 |     : base_type(SC_LIKELY_(s) ? s : "") {}
+      |                                       ^
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:56:21: note: candidate: ‘template<class T> sc_core::sc_string_view::sc_string_view(const T&, typename enable_if_convertible<T>::type*)’
+   56 |     /* constexpr */ sc_string_view( const T& s
+      |                     ^~~~~~~~~~~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:56:21: note:   template argument deduction/substitution failed:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h: In substitution of ‘template<class T> sc_core::sc_string_view::sc_string_view(const T&, typename enable_if_convertible<T>::type*) [with T = const char*]’:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:91:39:   required from here
+   91 |     : base_type(SC_LIKELY_(s) ? s : "") {}
+      |                                       ^
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:56:21: error: no type named ‘type’ in ‘struct sc_core::sc_string_view::enable_if_convertible<const char*>’
+   56 |     /* constexpr */ sc_string_view( const T& s
+      |                     ^~~~~~~~~~~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:44:14: note: candidate: ‘constexpr sc_core::sc_string_view::sc_string_view(const sc_core::sc_string_view&)’
+   44 | class SC_API sc_string_view
+      |              ^~~~~~~~~~~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:44:14: note:   no known conversion for argument 1 from ‘const char*’ to ‘const sc_core::sc_string_view&’
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:44:14: note: candidate: ‘constexpr sc_core::sc_string_view::sc_string_view(sc_core::sc_string_view&&)’
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:44:14: note:   no known conversion for argument 1 from ‘const char*’ to ‘sc_core::sc_string_view&&’
+/usr/local/systemc/include/sysc/utils/sc_string_view.h: In constructor ‘sc_core::sc_zstring_view::sc_zstring_view(const std::string&)’:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:94:26: error: no matching function for call to ‘sc_core::sc_string_view::sc_string_view(const char*)’
+   94 |     : base_type(s.c_str()) {} // enforce ending string at first \0 character
+      |                          ^
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:56:21: note: candidate: ‘template<class T> sc_core::sc_string_view::sc_string_view(const T&, typename enable_if_convertible<T>::type*)’
+   56 |     /* constexpr */ sc_string_view( const T& s
+      |                     ^~~~~~~~~~~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:56:21: note:   template argument deduction/substitution failed:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h: In substitution of ‘template<class T> sc_core::sc_string_view::sc_string_view(const T&, typename enable_if_convertible<T>::type*) [with T = const char*]’:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:94:26:   required from here
+   94 |     : base_type(s.c_str()) {} // enforce ending string at first \0 character
+      |                          ^
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:56:21: error: no type named ‘type’ in ‘struct sc_core::sc_string_view::enable_if_convertible<const char*>’
+   56 |     /* constexpr */ sc_string_view( const T& s
+      |                     ^~~~~~~~~~~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:44:14: note: candidate: ‘constexpr sc_core::sc_string_view::sc_string_view(const sc_core::sc_string_view&)’
+   44 | class SC_API sc_string_view
+      |              ^~~~~~~~~~~~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:44:14: note:   no known conversion for argument 1 from ‘const char*’ to ‘const sc_core::sc_string_view&’
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:44:14: note: candidate: ‘constexpr sc_core::sc_string_view::sc_string_view(sc_core::sc_string_view&&)’
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:44:14: note:   no known conversion for argument 1 from ‘const char*’ to ‘sc_core::sc_string_view&&’
+/usr/local/systemc/include/sysc/utils/sc_string_view.h: In member function ‘void sc_core::sc_zstring_view::swap(sc_core::sc_zstring_view&)’:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:97:18: error: ‘swap’ is not a member of ‘sc_core::sc_zstring_view::base_type’ {aka ‘sc_core::sc_string_view’}
+   97 |     { base_type::swap(s); }
+      |                  ^~~~
+/usr/local/systemc/include/sysc/utils/sc_string_view.h: In member function ‘const char* sc_core::sc_zstring_view::c_str() const’:
+/usr/local/systemc/include/sysc/utils/sc_string_view.h:100:14: error: ‘data’ was not declared in this scope
+  100 |     { return data(); }
+      |              ^~~~
+In file included from /usr/local/systemc/include/systemc:134:
+/usr/local/systemc/include/sysc/utils/sc_vector.h: At global scope:
+/usr/local/systemc/include/sysc/utils/sc_vector.h:174:1: warning: inline variables are only available with ‘-std=c++17’ or ‘-std=gnu++17’ [-Wc++17-extensions]
+  174 | inline constexpr bool sc_is_more_const_v =
+      | ^~~~~~
+/usr/local/systemc/include/sysc/utils/sc_vector.h:175:11: error: ‘is_same_v’ is not a member of ‘std’; did you mean ‘is_same’?
+  175 |      std::is_same_v<std::remove_const_t<CT>, std::remove_const_t<T>> &&
+      |           ^~~~~~~~~
+      |           is_same
+/usr/local/systemc/include/sysc/utils/sc_vector.h:175:44: error: expected primary-expression before ‘,’ token
+  175 |      std::is_same_v<std::remove_const_t<CT>, std::remove_const_t<T>> &&
+      |                                            ^
+/usr/local/systemc/include/sysc/utils/sc_vector.h:340:44: error: ‘is_same_v’ is not a member of ‘std’; did you mean ‘is_same’?
+  340 |         , typename = std::enable_if_t<std::is_same_v<std::remove_const_t<T1>, std::remove_const_t<T2>>>>
+      |                                            ^~~~~~~~~
+      |                                            is_same
+/usr/local/systemc/include/sysc/utils/sc_vector.h:340:44: error: ‘is_same_v’ is not a member of ‘std’; did you mean ‘is_same’?
+  340 |         , typename = std::enable_if_t<std::is_same_v<std::remove_const_t<T1>, std::remove_const_t<T2>>>>
+      |                                            ^~~~~~~~~
+      |                                            is_same
+/usr/local/systemc/include/sysc/utils/sc_vector.h:340:101: error: template argument 1 is invalid
+  340 |         , typename = std::enable_if_t<std::is_same_v<std::remove_const_t<T1>, std::remove_const_t<T2>>>>
+      |                                                                                                     ^~
+/usr/local/systemc/include/sysc/utils/sc_vector.h:340:103: error: expected ‘>’ before ‘>>’ token
+  340 |         , typename = std::enable_if_t<std::is_same_v<std::remove_const_t<T1>, std::remove_const_t<T2>>>>
+      |                                                                                                       ^~
+/usr/local/systemc/include/sysc/utils/sc_vector.h:351:44: error: ‘is_same_v’ is not a member of ‘std’; did you mean ‘is_same’?
+  351 |         , typename = std::enable_if_t<std::is_same_v<std::remove_const_t<T1>, std::remove_const_t<T2>>>>
+      |                                            ^~~~~~~~~
+      |                                            is_same
+/usr/local/systemc/include/sysc/utils/sc_vector.h:351:44: error: ‘is_same_v’ is not a member of ‘std’; did you mean ‘is_same’?
+  351 |         , typename = std::enable_if_t<std::is_same_v<std::remove_const_t<T1>, std::remove_const_t<T2>>>>
+      |                                            ^~~~~~~~~
+      |                                            is_same
+/usr/local/systemc/include/sysc/utils/sc_vector.h:351:101: error: template argument 1 is invalid
+  351 |         , typename = std::enable_if_t<std::is_same_v<std::remove_const_t<T1>, std::remove_const_t<T2>>>>
+      |                                                                                                     ^~
+/usr/local/systemc/include/sysc/utils/sc_vector.h:351:103: error: expected ‘>’ before ‘>>’ token
+  351 |         , typename = std::enable_if_t<std::is_same_v<std::remove_const_t<T1>, std::remove_const_t<T2>>>>
+      |                                                                                                       ^~
+/usr/local/systemc/include/sysc/kernel/sc_module.h:418:28: warning: ‘sc_core::sc_has_process_used’ is deprecated: SC_HAS_PROCESS(user_module_name) is obsolete in IEEE 1666-2023, define SC_ALLOW_DEPRECATED_IEEE_API to suppress. [-Wdeprecated-declarations]
+  418 |     static_assert(sc_core::sc_has_process_used, "no-op to avoid stray ';'")
+      |                            ^~~~~~~~~~~~~~~~~~~
+/home/grass/Documents/sem6/Convolution-Architectures-using-Systolic-Arrays/src/dialted_convolution/pe.h:61:5: note: in expansion of macro ‘SC_HAS_PROCESS’
+   61 |     SC_HAS_PROCESS(PE); //tells that module has processes
+      |     ^~~~~~~~~~~~~~
+/usr/local/systemc/include/sysc/kernel/sc_module.h:416:30: note: declared here
+  416 | static inline constexpr bool sc_has_process_used = true;
+      |                              ^~~~~~~~~~~~~~~~~~~
+/usr/local/systemc/include/sysc/kernel/sc_module.h:418:28: warning: ‘sc_core::sc_has_process_used’ is deprecated: SC_HAS_PROCESS(user_module_name) is obsolete in IEEE 1666-2023, define SC_ALLOW_DEPRECATED_IEEE_API to suppress. [-Wdeprecated-declarations]
+  418 |     static_assert(sc_core::sc_has_process_used, "no-op to avoid stray ';'")
+      |                            ^~~~~~~~~~~~~~~~~~~
+/home/grass/Documents/sem6/Convolution-Architectures-using-Systolic-Arrays/src/dialted_convolution/dilated_conv.h:56:5: note: in expansion of macro ‘SC_HAS_PROCESS’
+   56 |     SC_HAS_PROCESS(DilatedConv);
+      |     ^~~~~~~~~~~~~~
+/usr/local/systemc/include/sysc/kernel/sc_module.h:416:30: note: declared here
+  416 | static inline constexpr bool sc_has_process_used = true;
+      |                              ^~~~~~~~~~~~~~~~~~~
+make[2]: *** [CMakeFiles/dilated_conv.dir/build.make:76: CMakeFiles/dilated_conv.dir/src/dialted_convolution/dilated_conv_tb.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:89: CMakeFiles/dilated_conv.dir/all] Error 2
+make: *** [Makefile:91: all] Error 2

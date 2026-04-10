@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/depthwise_conv.dir/Depthwise_convolution/depthwise_conv_tb.cpp.o -o depthwise_conv   -L/usr/local/systemc/lib64  -Wl,-rpath,/usr/local/systemc/lib64 -lsystemc
