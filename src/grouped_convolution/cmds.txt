@@ -1,0 +1,10 @@
+g++ -std=c++17 grouped_conv_tb.cpp \
+    -I/usr/local/systemc/include \
+    -L/usr/local/systemc/lib64 \
+    -lsystemc \
+    -Wl,-rpath,/usr/local/systemc/lib64 \
+    -o grouped_conv_tb
+
+./grouped_conv_tb
+
+gtkwave build/grouped_waveforms.vcd

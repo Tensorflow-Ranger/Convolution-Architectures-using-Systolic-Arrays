@@ -54,8 +54,16 @@ g++ main.cpp \
 mkdir build && cd build
 cmake .. -DSYSTEMC_ROOT=/usr/local/systemc
 make
-./sim
 ```
+
+#### Running Specific Architectures
+
+After building, you can run the following targets:
+
+- **Dilated Convolution**: `./dilated_conv`
+- **Depthwise Convolution**: `./depthwise_conv`
+- **Grouped Convolution**: `./grouped_conv`
+- **Base Simulation (PE Test)**: `./sim`
 
 ### Viewing Waveforms
 
