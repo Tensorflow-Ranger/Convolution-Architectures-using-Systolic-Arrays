@@ -91,6 +91,57 @@ int sc_main(int argc, char* argv[]) {
 
     dut.print_utilization_report();
 
+    // =========================================================
+    //               POWER, AREA, AND TIME (PPA) ANALYSIS
+    // =========================================================
+    cout << "\n===============================================" << endl;
+    cout << "           HARDWARE PPA ANALYSIS REPORT          " << endl;
+    cout << "===============================================" << endl;
+
+    // Constants for our Analytical Model
+    const float CLOCK_PERIOD_NS = 10.0; 
+    const float MAC_ENERGY_PJ = 5.0;     // Energy per active MAC (picoJoules)
+    const float IDLE_ENERGY_PJ = 1.0;    // Leakage energy per cycle (picoJoules)
+    const float PE_AREA_UM2 = 1500.0;    // Area per PE (micrometers squared)
+
+    int global_active_cycles = 0;
+    int global_total_cycles = 0; 
+
+    // 1. Gather Data across the array (Using KxK since your kernel is K)
+    for(int r = 0; r < K; r++) {
+        for(int c = 0; c < K; c++) {
+            // Access the PEs through your dut wrapper!
+            global_active_cycles += dut.sa->pe[r][c]->active_cycles;
+            if (dut.sa->pe[r][c]->total_cycles > global_total_cycles) {
+                global_total_cycles = dut.sa->pe[r][c]->total_cycles;
+            }
+        }
+    }
+
+    // 2. TIME (Performance)
+    float total_time_ns = global_total_cycles * CLOCK_PERIOD_NS;
+    
+    // 3. AREA
+    int total_pes = K * K;
+    float total_area = total_pes * PE_AREA_UM2;
+
+    // 4. POWER (Energy Estimation)
+    float dynamic_energy = global_active_cycles * MAC_ENERGY_PJ;
+    float static_energy = (total_pes * global_total_cycles) * IDLE_ENERGY_PJ;
+    float total_energy = dynamic_energy + static_energy;
+    
+    // Power = Energy / Time
+    float average_power_mw = total_energy / total_time_ns; 
+
+    // --- Print the Results ---
+    cout << "[TIME] Total Latency:      " << total_time_ns << " ns (" << global_total_cycles << " cycles)" << endl;
+    cout << "[AREA] Total Array Area:   " << total_area << " um^2 (" << total_pes << " PEs)" << endl;
+    cout << "[POWER] Dynamic Energy:    " << dynamic_energy << " pJ" << endl;
+    cout << "[POWER] Static Leakage:    " << static_energy << " pJ" << endl;
+    cout << "[POWER] Total Energy:      " << total_energy << " pJ" << endl;
+    cout << "[POWER] Avg Power Consump: " << average_power_mw << " mW" << endl;
+    cout << "===============================================\n" << endl;
+
     sc_close_vcd_trace_file(tf);
     cout << "VCD file 'grouped_waveforms.vcd' generated." << endl;
 
