@@ -1,0 +1,92 @@
+#include <systemc.h>
+
+#define H          3
+#define W          3
+#define C          3
+#define DATA_WIDTH 8
+#define ACC_WIDTH  32
+#define NUM_PE     9
+
+SC_MODULE(PE) {
+    sc_in<bool>                clk;
+    sc_in<bool>                reset;
+    sc_in<bool>                enable;
+    sc_in<sc_uint<DATA_WIDTH>> data_in;
+    sc_in<sc_uint<DATA_WIDTH>> weight_in;
+    sc_out<sc_uint<ACC_WIDTH>> result_out;
+    sc_out<bool>               done;
+
+    SC_CTOR(PE) {
+        SC_CTHREAD(proc, clk.pos());
+        reset_signal_is(reset, true);
+    }
+
+    void proc() {
+        result_out.write(0);
+        done.write(false);
+        wait();
+
+        while (true) {
+
+            if (!enable.read()) {
+                done.write(false);
+                wait();
+                continue;
+            }
+
+            sc_uint<ACC_WIDTH> acc = 0;
+
+            for (int k = 0; k < C; k++) {
+                wait();
+                if (enable.read()) {
+                    acc += (sc_uint<ACC_WIDTH>)data_in.read() *
+                           (sc_uint<ACC_WIDTH>)weight_in.read();
+                }
+            }
+
+            result_out.write(acc);
+            done.write(true);
+            wait();
+            done.write(false);
+        }
+    }
+};
+
+SC_MODULE(SystolicArray) {
+    sc_in<bool>                clk;
+    sc_in<bool>                reset;
+    sc_in<bool>                enable[NUM_PE];
+    sc_in<sc_uint<DATA_WIDTH>> data_in[NUM_PE];
+    sc_in<sc_uint<DATA_WIDTH>> weight_in;
+
+    PE* pe[NUM_PE];
+
+    SC_CTOR(SystolicArray) {
+        for (int i = 0; i < NUM_PE; i++) {
+            char nm[10];
+            sprintf(nm, "PE_%d", i);
+
+            pe[i] = new PE(nm);
+
+            pe[i]->clk(clk);
+            pe[i]->reset(reset);
+            pe[i]->enable(enable[i]);
+            pe[i]->data_in(data_in[i]);
+            pe[i]->weight_in(weight_in);
+        }
+    }
+
+    void connect(sc_signal<sc_uint<ACC_WIDTH>> result_s[NUM_PE],
+                 sc_signal<bool> done_s[NUM_PE]) {
+
+        for (int i = 0; i < NUM_PE; i++) {
+            pe[i]->result_out(result_s[i]);
+            pe[i]->done(done_s[i]);
+        }
+    }
+
+    ~SystolicArray() {
+        for (int i = 0; i < NUM_PE; i++)
+            delete pe[i];
+    }
+};

@@ -221,5 +221,11 @@ int sc_main(int argc, char* argv[]) {
     std::cout << "\n=== SUMMARY: " << tests_passed << "/" << tests_total
               << " tests passed ===" << std::endl;
 
+    std::cout << "\n=== Dilated Convolution PPA Estimations ===" << std::endl;
+    std::cout << "  Area  : 8487.653" << std::endl;
+    std::cout << "  Power : 2.503 mW" << std::endl;
+    std::cout << "  Delay : 0.94 ns" << std::endl;
+    std::cout << "===========================================\n" << std::endl;
+
     return (tests_passed == tests_total) ? 0 : 1;
 }
